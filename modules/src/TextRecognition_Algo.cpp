@@ -81,7 +81,7 @@ void TextRecognition_Algo::extract_characters(const cv::Mat &i_src, std::vector<
         }
     }
 
-    cv::imshow("image_normalized", image_normalized);
+    // cv::imshow("image_normalized", image_normalized);
 
     // Remove background
     {
@@ -252,16 +252,16 @@ void TextRecognition_Algo::extract_characters(const cv::Mat &i_src, std::vector<
     }
 
     // Display
-    {
-        cv::Mat display;
-        cv::cvtColor(image, display, cv::COLOR_GRAY2BGR);
-        for(auto& rect : rects) {
-            cv::rectangle(display, rect, cv::Scalar(0, 255, 127), 1);
-        }
+    // {
+    //     cv::Mat display;
+    //     cv::cvtColor(image, display, cv::COLOR_GRAY2BGR);
+    //     for(auto& rect : rects) {
+    //         cv::rectangle(display, rect, cv::Scalar(0, 255, 127), 1);
+    //     }
 
-        cv::imshow("contours", display);
-        while(cv::waitKey(10) & 0xff != 'n');
-    }
+    //     cv::imshow("contours", display);
+    //     while(cv::waitKey(10) & 0xff != 'n');
+    // }
 
     // Extract character image patches
     o_characterPatches.reserve(rects.size());
