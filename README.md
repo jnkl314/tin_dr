@@ -2,11 +2,53 @@
 
 Tested on Ubuntu 18.04.
 
-Direct dependencies:
+Direct dependencies: <br/>
+TCLAP : libtclap-dev (official repo) <br/>
+Opencv 4.1.2  <br/>
+ <br/>
+OpenCV was built from sources (https://github.com/opencv/opencv/tree/4.1.2 and contribs https://github.com/opencv/opencv_contrib/tree/4.1.2). <br/>
+It must have Tesseract enabled <br/>
+Tesseract : libtesseract4 libtesseract-dev  (official repo) <br/>
+ <br/>
+HOW TO : <br/>
+Sample for detection and recognition : <br/>
+```bash
+cd [YourPath]/samples/
+mkdir build_DetectionRecognition
+cd build_DetectionRecognition
+cmake ../DetectionRecognition -DCMAKE_BUILD_TYPE=Release -DOPENCV_VERSION=4 -DTIN_DR_WITH_VERBOSE=ON
+```
 
-TCLAP : libtclap-dev (official repo)
+Execution : <br/>
+```bash
+./DetectionRecognition -i [YourPath]/tin_001.jpeg -m [YourPath]/frozen_east_text_detection.pb -c 0.1 -n 0.1 -s -p 10
+```
 
-Opencv 4.1.2 :
-OpenCV was built from sources (https://github.com/opencv/opencv/tree/4.1.2 and contribs https://github.com/opencv/opencv_contrib/tree/4.1.2).
-It must have Tesseract enabled
-Tesseract : libtesseract4 libtesseract-dev  (official repo)
+Help :
+```bash
+-o <string>,  --outputPath <string>
+    Path to a directory to save detected text patches
+
+-p <int>,  --padding <int>
+    Add padding to detected area
+
+-s,  --useSlidingWindow
+    Instead of resizing the input image to 320x320, use a sliding window
+    and merge detections
+
+-n <float>,  --nmsThreshold <float>
+    Non-maximum suppression threshold
+
+-c <float>,  --confidenceThreshold <float>
+    Confidence threshold
+
+-m <string>,  --eastModelPath <string>
+    (required)  Path to a binary .pb containing the trained network from
+    :
+
+    https://github.com/argman/EAST => EAST: An Efficient and Accurate
+    Scene Text Detector (https://arxiv.org/abs/1704.03155v2)
+
+-i <string>,  --inputPath <string>
+    (required)  Path to an image
+```
