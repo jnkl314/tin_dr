@@ -13,15 +13,16 @@ Tesseract : libtesseract4 libtesseract-dev  (official repo) <br/>
 HOW TO : <br/>
 Sample for detection and recognition : <br/>
 ```bash
-cd [YourPath]/samples/
+cd [LocalPath]/samples/
 mkdir build_DetectionRecognition
 cd build_DetectionRecognition
 cmake ../DetectionRecognition -DCMAKE_BUILD_TYPE=Release -DOPENCV_VERSION=4 -DTIN_DR_WITH_VERBOSE=ON
+make -j12
 ```
 
 Execution : <br/>
 ```bash
-./DetectionRecognition -i [YourPath]/tin_001.jpeg -m [YourPath]/frozen_east_text_detection.pb -c 0.1 -n 0.1 -s -p 10
+./DetectionRecognition -i ../../data/tin_001.jpeg -m ../../data/frozen_east_text_detection.pb -c 0.1 -n 0.1 -s -p 10
 ```
 
 Help :
