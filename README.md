@@ -1,5 +1,8 @@
 # Tire Identification Number Detection and Recognition
 
+<img src="./data/Solution_Overview.png" width="768" height="576">
+
+## Requirements
 Tested on Ubuntu 18.04.
 
 Direct dependencies: <br/>
@@ -10,7 +13,7 @@ OpenCV was built from sources (https://github.com/opencv/opencv/tree/4.1.2 and c
 It must have Tesseract enabled <br/>
 Tesseract : libtesseract4 libtesseract-dev  (official repo) <br/>
  <br/>
-HOW TO : <br/>
+## HOW TO
 Sample for detection and recognition : <br/>
 ```bash
 cd [LocalPath]/samples/
